@@ -1,0 +1,374 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Designer inspired scents at  <em>prices you'll adore</em>",
+            "heading_size": "h0"
+          }
+        },
+        "text_ipJgrg": {
+          "type": "text",
+          "settings": {
+            "text": "Add any two items to your cart, and get the cheapest one for free!   No code required!",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "btn_text_color": "#ffffff",
+            "btn_bg_color": "#000000",
+            "button_label_1": "Shop Women",
+            "button_link_1": "shopify://collections/women",
+            "button_style_secondary_1": false,
+            "btn_text_color1": "#ffffff",
+            "btn_bg_color1": "#000000",
+            "button_label_2": "Shop Men",
+            "button_link_2": "shopify://collections/men",
+            "button_style_secondary_2": false
+          }
+        },
+        "trust_C68MH9": {
+          "type": "trust",
+          "settings": {
+            "icon_image": "shopify://shop_images/smile_1933704.png",
+            "heading_text": "20K+ 5-Star Reviews",
+            "icon_image2": "shopify://shop_images/customer_3126649.png",
+            "heading_text2": "180K+ Customers",
+            "icon_image3": "shopify://shop_images/smile_1933704.png",
+            "heading_text3": "60-Day Money-Back Guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text_ipJgrg",
+        "button",
+        "trust_C68MH9"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/banner-desktop.png",
+        "image_2": "shopify://shop_images/Header_2.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "top-left",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "home_quotes_slider_8jpRQH": {
+      "type": "home-quotes-slider",
+      "blocks": {
+        "quote_BkWemL": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/her.svg",
+            "alt_text": "",
+            "quote": "“Ideal for that festive fragrance or last-minute gift idea.”"
+          }
+        },
+        "quote_MXrR7V": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/logo-indpendent.svg",
+            "alt_text": "",
+            "quote": "“Anything I’ve ordered has been amazing and has a long lasting scent.”"
+          }
+        },
+        "quote_XydqNU": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/metro.svg",
+            "alt_text": "",
+            "quote": "“We seriously couldn’t tell the difference between this and the real deal.”"
+          }
+        },
+        "quote_BdCwfL": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/her.svg",
+            "alt_text": "",
+            "quote": "Enter the testimonial or quote here."
+          }
+        },
+        "quote_HXEkCe": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/logo-indpendent.svg",
+            "alt_text": "",
+            "quote": "“We seriously couldn’t tell the difference between this and the real deal.”"
+          }
+        },
+        "quote_inCQGY": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/metro.svg",
+            "alt_text": "",
+            "quote": "“We seriously couldn’t tell the difference between this and the real deal.”"
+          }
+        }
+      },
+      "block_order": [
+        "quote_BkWemL",
+        "quote_MXrR7V",
+        "quote_XydqNU",
+        "quote_BdCwfL",
+        "quote_HXEkCe",
+        "quote_inCQGY"
+      ],
+      "name": "Quotes Slider",
+      "settings": {}
+    },
+    "tab_collection_product_TgPfKA": {
+      "type": "tab-collection-product",
+      "blocks": {
+        "collection_tab_QDiktx": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "Most Popular",
+            "collection": "best-sellers"
+          }
+        },
+        "collection_tab_yc7Xrc": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "Bundles & Gifts",
+            "collection": "women"
+          }
+        },
+        "collection_tab_gJNCfw": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "New Drop 🔥",
+            "collection": "bundle-save"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_QDiktx",
+        "collection_tab_yc7Xrc",
+        "collection_tab_gJNCfw"
+      ],
+      "name": "Tab Collections",
+      "settings": {
+        "products_to_show": 8,
+        "columns_desktop": "4",
+        "columns_mobile": "2",
+        "enable_slider": false,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "below",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "multicolumn_X44CBm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_z6BUKj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Icon_3.svg",
+            "title": "High Quality",
+            "text": "<p>Crafted with the same attention to detail as designer brands.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_LmXwdK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Icon_4.svg",
+            "title": "Long-Lasting",
+            "text": "<p>Lasts for 12+ hours (some say longer).</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_MejQfj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Icon_5.svg",
+            "title": "Made in the Canada",
+            "text": "<p>Vegan, cruelty-free, and made in the Canada</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6iUjFf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Icon_2.svg",
+            "title": "60-Day Money-Back Guarantee",
+            "text": "<p>We accept products back within 60 days for a refund.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_z6BUKj",
+        "column_LmXwdK",
+        "column_MejQfj",
+        "column_6iUjFf"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "fifth",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "fragrance_quiz_banner_iLmdDr": {
+      "type": "fragrance-quiz-banner",
+      "name": "Fragrance Quiz Banner",
+      "settings": {
+        "full_with": true,
+        "background_image": "shopify://shop_images/Header_2_1.png",
+        "background_image_mobile": "shopify://shop_images/product-range_7ff7e098-0d2e-4436-b9b3-3bf41b70f7dd.png",
+        "heading": "Not sure where to start?",
+        "description": "Take our quiz for specialist recommendations.",
+        "button_text": "Find My Fragrance",
+        "button_link": "#",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "our_story_section_kpfKPz": {
+      "type": "our-story-section",
+      "name": "Our Story Section",
+      "settings": {
+        "bg_color": "#000000",
+        "heading": "Our Story",
+        "text": "The fragrance industry has a secret: you're paying for the brand name, not the scent. At Vanillalux, we believe luxury should be felt—not overpaid for. That’s why we handcraft designer-inspired scents using high-quality ingredients—without the luxury markup. Our fragrances are cruelty-free, long-lasting, and made for scent lovers who want more elegance. Smelling incredible shouldn’t cost a fortune.",
+        "button_label": "SHOP NOW",
+        "button_link": "shopify://collections/best-sellers",
+        "stat1_number": "120+",
+        "stat1_label": "Scents Crafted",
+        "stat2_number": "50K+",
+        "stat2_label": "Orders Fulfilled",
+        "stat3_number": "180K+",
+        "stat3_label": "Bottles Sold",
+        "image_1": "shopify://shop_images/BTS_2.png",
+        "image_2": "shopify://shop_images/BTS_3.png",
+        "image_3": "shopify://shop_images/BTS_4.png",
+        "image_4": "shopify://shop_images/BTS_6.png"
+      }
+    },
+    "our_best_sellers_jUkMqU": {
+      "type": "our-best-sellers",
+      "blocks": {
+        "inspired_product_VhBGCM": {
+          "type": "inspired_product",
+          "settings": {
+            "label": "Inspired by",
+            "product": "get-wild-spirit-concentrate",
+            "title": "Sauvage - 197"
+          }
+        },
+        "inspired_product_rYKzwy": {
+          "type": "inspired_product",
+          "settings": {
+            "label": "Inspired by",
+            "product": "fresh-escape",
+            "title": "Honey - 197"
+          }
+        },
+        "inspired_product_HJcaUz": {
+          "type": "inspired_product",
+          "settings": {
+            "label": "Inspired by",
+            "product": "honey-florals-woods",
+            "title": "Sauvage - 197"
+          }
+        },
+        "inspired_product_CzL7zC": {
+          "type": "inspired_product",
+          "settings": {
+            "label": "Inspired by",
+            "product": "aldehydes-rose-sandalwood-50-ml-1-7-fl-oz",
+            "title": "Sauvage - 197"
+          }
+        },
+        "inspired_product_GKx7pG": {
+          "type": "inspired_product",
+          "settings": {
+            "label": "Inspired by",
+            "product": "iris-praline-vanilla",
+            "title": "Iris Praline"
+          }
+        },
+        "inspired_product_jV3F63": {
+          "type": "inspired_product",
+          "settings": {
+            "label": "Inspired by",
+            "product": "",
+            "title": "Sauvage - 197"
+          }
+        },
+        "inspired_product_qRAAJU": {
+          "type": "inspired_product",
+          "settings": {
+            "label": "Inspired by",
+            "product": "orange-rose-patchouli-50-ml-1-7-fl-oz",
+            "title": "Orange Rose"
+          }
+        }
+      },
+      "block_order": [
+        "inspired_product_VhBGCM",
+        "inspired_product_rYKzwy",
+        "inspired_product_HJcaUz",
+        "inspired_product_CzL7zC",
+        "inspired_product_GKx7pG",
+        "inspired_product_jV3F63",
+        "inspired_product_qRAAJU"
+      ],
+      "name": "Our Best Sellers",
+      "settings": {
+        "label_text": "Our Best Sellers"
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "home_quotes_slider_8jpRQH",
+    "tab_collection_product_TgPfKA",
+    "multicolumn_X44CBm",
+    "fragrance_quiz_banner_iLmdDr",
+    "our_story_section_kpfKPz",
+    "our_best_sellers_jUkMqU"
+  ]
+}

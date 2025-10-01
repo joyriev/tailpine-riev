@@ -1,0 +1,39 @@
+<div class="text-block text-{{ block.settings.alignment }}">
+  {{ block.settings.text }}
+</div>
+
+{% stylesheet %}
+  .text-left {
+    text-align: left;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Quotes Slider",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    { "name": "Quotes Slider" },
+    {
+      "name": "Content",
+      "settings": {
+        "text": "<p>Hello, world!</p>"
+      }
+    }
+  ]
+}
+{% endschema %}

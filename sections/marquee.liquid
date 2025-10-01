@@ -1,0 +1,109 @@
+<style>
+  .custom-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.custom-marquee {
+  display: inline-block;
+  padding: 4px 0;
+  white-space: nowrap;
+  animation: scroll-left linear infinite;
+}
+.custom-marquee span{
+  font-size: 12px;
+  font-weight: 600;
+}
+.custom-marquee span {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.custom-marquee .dot {
+  font-weight: bold;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); } /* Only scroll half, since content is duplicated */
+}
+
+</style>
+<div class="custom-marquee-wrapper" style="background-color: {{ section.settings.background_color }};">
+  <div
+    class="custom-marquee"
+    style="animation-duration: {{ section.settings.animation_speed }}s; color: {{ section.settings.text_color }};">
+    {% for loop in (1..5) %}
+    {% for block in section.blocks %}
+      {% if block.settings.text != blank %}
+      <span>{{ block.settings.text }}</span>
+      <span class="dot">•</span>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Marquee Banner",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "label": "Scroll speed (seconds)",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "default": 25
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Marquee Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Message text",
+          "default": "Save Up To 50% With Our Bundles & Gift Sets"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Marquee Banner",
+      "category": "Announcement",
+      "blocks": [
+        {
+          "type": "message",
+          "settings": {
+            "text": "Save Up To 50% With Our Bundles & Gift Sets"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "Free Shipping on Orders Over ₹999"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

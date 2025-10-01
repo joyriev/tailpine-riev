@@ -1,0 +1,109 @@
+  <div class="tev-marquee-container">
+    <div
+      class="tev-marquee-track"
+      id="tev-marquee-track-{{ section.id }}"
+      style="animation-duration: {{ section.settings.speed }}s;"
+    >
+      <div class="tev-marquee-text">
+        <span>{{ section.settings.message }}</span>
+        <span class="dot">·</span>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .tev-marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background-color: #fff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .tev-marquee-track {
+      display: flex;
+      width: max-content;
+      white-space: nowrap;
+      animation-name: tev-scroll;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      padding: 3px 0;
+    }
+
+    .tev-marquee-text {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .tev-marquee-text span {
+      display: inline-block;
+    }
+
+    .tev-marquee-text .dot {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0 2rem;
+      color: #000;
+    }
+
+    @keyframes tev-scroll {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tev-marquee-text {
+        font-size: 12px;
+        padding-right: 2rem;
+      }
+      .tev-marquee-text .dot {
+        font-size: 16px;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const track = document.getElementById('tev-marquee-track-{{ section.id }}');
+      const marqueeBlock = track?.children[0];
+
+      if (!track || !marqueeBlock) return;
+
+      while (track.scrollWidth < window.innerWidth * 2) {
+        const clone = marqueeBlock.cloneNode(true);
+        track.appendChild(clone);
+      }
+    });
+  </script>
+
+{% schema %}
+{
+  "name": "Marquee Header",
+  "tag": "section",
+  "class": "tev-marquee-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Marquee Message",
+      "default": "Save up to 50% with our Bundles & Gift sets"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll Speed (seconds per loop)",
+      "default": 60,
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "unit": "s"
+    }
+  ]
+}
+{% endschema %}

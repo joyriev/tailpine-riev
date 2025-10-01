@@ -1,0 +1,100 @@
+<style>
+.guarantee-section {
+  background-color:#f5f5f5;
+  padding: 50px 20px; 
+  text-align: center;
+}
+.guarantee-section .heading-text{
+ font-size: 48px; 
+  font-weight: 700; 
+  margin-bottom: 20px; 
+}
+.guarantee-section .page-width{
+  max-width:750px;
+}
+.star-number{
+  display:flex;
+  align-item:center;
+  color:#f5c518;
+  justify-content: center;
+} 
+svg.size-6 {
+  width: 24px;
+  height: 24px;
+}
+.happy-customer{
+ background-color: #000; 
+  color: #fff;
+  text-align:center;
+  padding: 20px 10px; 
+  margin-top:0; 
+  margin-bottom:30px;
+}
+.guarantee-section p{
+  font-size:14px;
+  letter-spacing: 0;
+}  
+</style>
+<div class="guarantee-section" style="">
+  <div class="page-width">
+    <div class="star-number">
+      {% for i in (i..4) %}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+          <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"></path>
+        </svg>
+      {% endfor %}
+    </div>
+    <h2 class="heading-text" style="">
+      {{ section.settings.heading }}
+    </h2>
+    <p>
+      {{ section.settings.subheading }}
+    </p>
+    <p>
+      {{ section.settings.bottom_text }}
+    </p>
+  </div>
+</div>
+
+<div class="happy-customer" style="">
+  <strong style="font-size: 16px;">
+    {{ section.settings.footer_text }}
+  </strong>
+</div>
+
+{% schema %}
+{
+  "name": "Guarantee Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Essence Vault Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "At The Essence Vault, we believe in fragrances that make you feel amazing. That’s why we offer a 30-day money-back guarantee—so you can shop with confidence."
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom Text",
+      "default": "If you're not completely in love with your scent, simply return it within 30 days for a full refund. No hassle, no stress—just a promise that you'll find a fragrance you truly adore."
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "1,600,000+ Happy Customers"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Guarantee Section"
+    }
+  ]
+}
+{% endschema %}

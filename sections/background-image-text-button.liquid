@@ -1,0 +1,133 @@
+<div class="page-width">
+  <div class="background-text-button-section">
+    <div class="banner-image-wrapper">
+      {% if section.settings.banner_image != blank %}
+        <img
+          src="{{ section.settings.banner_image | image_url: width: 1600 }}"
+          alt="Banner"
+          class="banner-image"
+          loading="lazy"
+        >
+      {% else %}
+        <img
+          src="{{ 'hero-apparel.jpg' | asset_url }}"
+          alt="Placeholder Banner"
+          class="banner-image"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+  
+    <div class="content-container page-width text-center">
+      <h2 class="heading">{{ section.settings.heading }}</h2>
+      <p class="subheading">{{ section.settings.subheading }}</p>
+      <a href="{{ section.settings.button_link }}" class="cta-button">
+        {{ section.settings.button_label }}
+      </a>
+    </div>
+  </div>
+</div>
+<style>
+.background-text-button-section {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  color: #000;
+  background: rgba(255, 255, 255, 0.9); /* White overlay */
+  padding: 30px 20px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  display: inline-block;
+}
+
+.background-text-button-section .banner-image-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.background-text-button-section .banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.background-text-button-section .content-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px 20px;
+  border-radius: 12px;
+  max-width: 90%;
+}
+
+.background-text-button-section .heading {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+}
+
+.background-text-button-section .subheading {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.background-text-button-section .cta-button {
+  background-color: #4a662f;
+  color: #fff;
+  padding: 12px 24px;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Background image text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Not sure where to start?"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Take our quiz for specialist recommendations."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Find My Fragrance"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Background image text Button"
+    }
+  ]
+}
+{% endschema %}

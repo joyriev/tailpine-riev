@@ -1,0 +1,215 @@
+{% stylesheet %}
+.our-story-section {
+  background-color:#000000;
+  color: #fff;
+  padding: 0px 20px;
+}
+.our-story-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.our-story-text {
+  flex: 1 1 400px;
+  text-align: center;
+}
+.our-story-text h2 {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: 'Inter';
+}
+.our-story-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.our-story-button {
+  display: inline-block;
+  background-color: #4d8127;
+  color: #fff;
+  padding: 12px 44px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.our-story-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+.stat-item {
+  text-align: center;
+}
+.stat-item h3 {
+  color: #6aaa38;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-family: 'Inter';
+}
+.story-images {
+  flex: 1 1 400px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+.story-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.story-images img:first-of-type {
+  margin-top: 44px;
+}
+@media (max-width: 767px) {
+  .stat-item h3 {
+    font-size: 20px;
+  }
+  .our-story-text p {
+   font-size: 14px;
+  }
+}
+{% endstylesheet %}
+
+<div class="our-story-section">
+  <div class="our-story-container">
+    <div class="our-story-text">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+      <a href="{{ section.settings.button_link }}" class="our-story-button">{{ section.settings.button_label }}</a>
+
+      <div class="our-story-stats">
+        <div class="stat-item">
+          <h3>{{ section.settings.stat1_number }}</h3>
+          <p>{{ section.settings.stat1_label }}</p>
+        </div>
+        <div class="stat-item">
+          <h3>{{ section.settings.stat2_number }}</h3>
+          <p>{{ section.settings.stat2_label }}</p>
+        </div>
+        <div class="stat-item">
+          <h3>{{ section.settings.stat3_number }}</h3>
+          <p>{{ section.settings.stat3_label }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-images">
+      {% for i in (1..4) %}
+        {% assign key = 'image_' | append: i %}
+        {% assign image = section.settings[key] %}
+        {% if image != blank %}
+          <img class="image-story-pictoure" src="{{ image | image_url: width: 600 }}" loading="lazy" alt="Story image {{ i }}">
+        {% else %}
+          {{ 'product-apparel-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Our Story Section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Story"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Paragraph Text",
+      "default": "Our founder, Connor, set out on a mission to create premium fragrances inspired by designer scents—without the premium price tag..."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "stat1_number",
+      "label": "Stat 1 Number",
+      "default": "170+"
+    },
+    {
+      "type": "text",
+      "id": "stat1_label",
+      "label": "Stat 1 Label",
+      "default": "Scents Crafted"
+    },
+    {
+      "type": "text",
+      "id": "stat2_number",
+      "label": "Stat 2 Number",
+      "default": "2M+"
+    },
+    {
+      "type": "text",
+      "id": "stat2_label",
+      "label": "Stat 2 Label",
+      "default": "Orders Fulfilled"
+    },
+    {
+      "type": "text",
+      "id": "stat3_number",
+      "label": "Stat 3 Number",
+      "default": "4M+"
+    },
+    {
+      "type": "text",
+      "id": "stat3_label",
+      "label": "Stat 3 Label",
+      "default": "Bottles Sold"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Story Section"
+    }
+  ]
+}
+{% endschema %}

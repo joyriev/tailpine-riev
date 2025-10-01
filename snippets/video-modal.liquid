@@ -1,0 +1,104 @@
+{% style %}
+  .video-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11;
+}
+.video-popup-content {
+    position: relative;
+    max-width: 500px;
+    background: #f6f7f8;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width:100%;
+}
+.video-popup-content video {
+    width: auto;
+    max-height: 450px;
+    margin: auto;
+}
+.video-popup-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #fff;
+    color: #000;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 22;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    line-height: 27px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+  @media (max-width:749px){
+    .video-popup-content{
+      width:90%;
+    }
+  }
+{% endstyle %}
+<div id="video-popup-modal" class="video-popup-overlay" style="display: none;">
+  <div class="video-popup-content">
+    <span class="video-popup-close">&times;</span>
+    <video id="popup-video" controls autoplay>
+      <source src="" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+  // Attach click listener to all swiper-slide videos
+  document.querySelectorAll('.swiper-slide video').forEach(function (videoEl) {
+    videoEl.addEventListener('click', function () {
+      const source = videoEl.querySelector('source');
+      if (source) {
+        const videoSrc = source.getAttribute('src');
+
+        // Show popup and set video source
+        const popupOverlay = document.getElementById('video-popup-modal');
+        const popupVideo = document.getElementById('popup-video');
+        const popupSource = popupVideo.querySelector('source');
+
+        popupSource.setAttribute('src', videoSrc);
+        popupVideo.load(); // reload to apply new source
+        popupOverlay.style.display = 'flex';
+      }
+    });
+  });
+
+  // Close popup on click of close button or outside content
+  document.querySelector('.video-popup-close').addEventListener('click', function () {
+    closeVideoPopup();
+  });
+
+  document.getElementById('video-popup-modal').addEventListener('click', function (e) {
+    if (e.target.id === 'video-popup-modal') {
+      closeVideoPopup();
+    }
+  });
+
+  function closeVideoPopup() {
+    const popupOverlay = document.getElementById('video-popup-modal');
+    const popupVideo = document.getElementById('popup-video');
+
+    popupOverlay.style.display = 'none';
+    popupVideo.pause();
+    popupVideo.currentTime = 0;
+  }
+});
+
+</script>

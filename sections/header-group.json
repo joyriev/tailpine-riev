@@ -1,0 +1,182 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-1",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "marquee-header": {
+      "type": "marquee-header",
+      "settings": {
+        "message": "Save up to 50% with our Bundles & Gift sets",
+        "speed": 60
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "card_8PneDy": {
+          "type": "card",
+          "settings": {
+            "menu_title": "Men",
+            "image": "shopify://shop_images/Vanilla-Ceremony-Scent.png",
+            "title": "Vanilla Ceremony 50 ml / 1.7 fl oz",
+            "description": "",
+            "link": "shopify://products/vanilla-ceremony-50-ml-1-7-fl-oz"
+          }
+        },
+        "card_Nwy6Pz": {
+          "type": "card",
+          "settings": {
+            "menu_title": "Men",
+            "image": "shopify://shop_images/Vanilla-Ceremony-Scent.png",
+            "title": "Vanilla Ceremony 50 ml / 1.7 fl oz",
+            "description": "",
+            "link": "shopify://products/vanilla-ceremony-50-ml-1-7-fl-oz"
+          }
+        },
+        "card_mxpA8d": {
+          "type": "card",
+          "settings": {
+            "menu_title": "Men",
+            "image": "shopify://shop_images/Vanilla-Ceremony-Scent.png",
+            "title": "Vanilla Ceremony 50 ml / 1.7 fl oz",
+            "description": "",
+            "link": "shopify://products/vanilla-ceremony-50-ml-1-7-fl-oz"
+          }
+        },
+        "card_wRTEnr": {
+          "type": "card",
+          "settings": {
+            "menu_title": "Women",
+            "image": "shopify://shop_images/Iron_Soil_-_Price_-_USD.png",
+            "title": "Women",
+            "description": "",
+            "link": "shopify://products/aldehydes-rose-sandalwood-50-ml"
+          }
+        },
+        "card_xCBCem": {
+          "type": "card",
+          "settings": {
+            "menu_title": "Women",
+            "image": "shopify://shop_images/Iron_Soil_-_Price_-_USD.png",
+            "title": "Women2",
+            "description": "",
+            "link": "shopify://products/aldehydes-rose-sandalwood-50-ml"
+          }
+        }
+      },
+      "block_order": [
+        "card_8PneDy",
+        "card_Nwy6Pz",
+        "card_mxpA8d",
+        "card_wRTEnr",
+        "card_xCBCem"
+      ],
+      "settings": {
+        "logo_position": "top-left",
+        "logo_invert": true,
+        "mobile_logo_position": "center",
+        "menu": "main-menu",
+        "menu_mobile": "main-menu-mobile",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-4",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "margin_bottom": 0,
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "bottomheader": {
+      "type": "header-bottom",
+      "blocks": {
+        "icon_mHHET6": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/men.png",
+            "label": "Men",
+            "link_url": "shopify://collections/men"
+          }
+        },
+        "icon_FP6pet": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/women.png",
+            "label": "Women",
+            "link_url": "shopify://collections/women"
+          }
+        },
+        "icon_3FPqhM": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/bundle.png",
+            "label": "Bundle",
+            "link_url": "shopify://collections/best-sellers"
+          }
+        },
+        "icon_9FTxCL": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/unisex.png",
+            "label": "Unisex",
+            "link_url": "shopify://collections/unisex"
+          }
+        }
+      },
+      "block_order": [
+        "icon_mHHET6",
+        "icon_FP6pet",
+        "icon_3FPqhM",
+        "icon_9FTxCL"
+      ],
+      "settings": {
+        "left_text": "Buy 2 Get 1 Free",
+        "middle_text": "50% OFF!",
+        "right_text": "SHOP NOW 👉",
+        "link_url": "shopify://collections/all"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "marquee-header",
+    "header",
+    "bottomheader"
+  ]
+}

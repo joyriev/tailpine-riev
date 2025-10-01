@@ -1,0 +1,303 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+
+<div  class="collection-tabs-wrapper page-width" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+
+  <div class="collection-tabs-nav">
+    {% for block in section.blocks %}
+      <button
+        class="tab-button{% if forloop.first %} active{% endif %}"
+        data-tab="{{ block.settings.collection.handle }}"
+      >
+        {{ block.settings.tab_title | escape }}
+      </button>
+    {% endfor %}
+  </div>
+
+  {% for block in section.blocks %}
+    {% assign collection = block.settings.collection %}
+    {% assign products_to_show = section.settings.products_to_show | default: 8 %}
+    <div
+      class="collection-tab-content{% if forloop.first %} active{% endif %}"
+      id="tab-{{ collection.handle }}"
+    >
+      <ul
+        id="Slider-{{ section.id }}-{{ forloop.index }}"
+        data-id="{{ section.id }}"
+        class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.enable_slider %} slider slider--desktop slider--tablet grid--peek{% endif %}"
+        role="list"
+        aria-label="{{ 'general.slider.name' | t }}"
+      >
+        {% assign skip_card_product_styles = false %}
+
+        {%- if collection.products.size > 0 -%}
+          {% paginate collection.products by products_to_show %}
+            {%- for product in collection.products limit: products_to_show -%}
+              <li
+                id="Slide-{{ section.id }}-{{ forloop.index }}"
+                class="grid__item{% if section.settings.enable_slider %} slider__slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  skip_styles: skip_card_product_styles,
+                  section_id: section.id,
+                  quick_add: section.settings.quick_add
+                %}
+              </li>
+              {%- assign skip_card_product_styles = true -%}
+            {%- endfor -%}
+          {% endpaginate %}
+        {%- else -%}
+         {% for i in (1..section.settings.columns_desktop) %}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: nil,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_vendor: section.settings.show_vendor
+              %}
+            </li>
+         {% endfor %}
+
+        {%- endif -%}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+.collection-tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.collection-tabs-nav .tab-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: #6c6d70; 
+  padding: 0.5rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.collection-tabs-nav .tab-button.active {
+  color: #000; 
+  font-weight: 700;
+}
+
+.collection-tabs-nav .tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #4C8C35; 
+  margin: auto;
+  width: 100%;
+  border-radius: 2px;
+}
+.collection-tab-content .contains-card--product{
+  margin:0px;
+}
+.collection-tab-content { display: none; padding: 3rem 0;}
+.collection-tab-content.active { display: block; }
+  
+@media only screen and (max-width: 767px) {
+  .collection-tabs-nav .tab-button {
+    font-size:14px;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.collection-tab-content');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const tab = this.dataset.tab;
+
+        buttons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        contents.forEach(content => {
+          content.classList.remove('active');
+          if (content.id === 'tab-' + tab) {
+            content.classList.add('active');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collection Tabs",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Columns (Desktop)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns (Mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "label": "Enable slider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "square", "label": "Square" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "adapt", "label": "Adapt to image" }
+      ],
+      "default": "adapt"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image shape",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "rounded", "label": "Rounded" },
+        { "value": "blob", "label": "Blob" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "label": "Show secondary image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show rating",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "label": "Quick add",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "above", "label": "Above button" },
+        { "value": "below", "label": "Below button" }
+      ],
+      "default": "below"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_tab",
+      "name": "Collection Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Collection"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Choose Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Tabs",
+      "blocks": [
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "Most Popular"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "Bundles & Gifts"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

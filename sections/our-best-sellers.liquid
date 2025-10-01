@@ -1,0 +1,138 @@
+<div class="our-best-sellers-section">
+  <div class="our-best-sellers-container">
+    <div class="heading-text-left">
+     <h2 class="our-best-sellers-title">{{ section.settings.label_text }}</h2>
+    </div>
+    <div class="our-best-sellers-list">
+      {% for block in section.blocks %}
+        {% assign label = block.settings.label %}
+        {% assign product = block.settings.product %}
+        {% if product != blank %}
+          <span class="our-best-sellers-item">
+            {{ label }} <a href="{{ product.url }}">
+          {% if block.settings.title != blank %}
+            {{ block.settings.title }}
+            {% else %}
+          {{ product.title }}
+            {% endif %}
+          </a>
+          </span>
+          {% unless forloop.last %}<span> |</span>{% endunless %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+.our-best-sellers-section {
+  background-color: #6e392a;
+  color: white;
+  padding: 48px 64px;
+  overflow-x: auto;
+}
+.our-best-sellers-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.heading-text-left {
+    width: 15%;
+}
+.our-best-sellers-title {
+  font-weight: 600;
+  font-size: 18px;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+  color:#fff;
+  margin-bottom: 8px;
+}
+.our-best-sellers-list {
+  display: flex;
+  flex-wrap: wrap;
+  width:85%;
+  font-size: 11px;
+  gap: 8px;
+  padding-bottom: 4px;
+}
+.our-best-sellers-item a {
+  text-decoration: underline;
+  color: white;
+  transition: color 0.3s;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.our-best-sellers-item a:hover {
+  color: #ccc;
+}
+
+/* Optional: media query for larger screens to allow wrapping */
+@media (min-width: 768px) {
+  .our-best-sellers-list {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 767px) {
+  .our-best-sellers-container {
+    flex-direction: column;
+  }
+  .heading-text-left {
+    width: 100%;
+  }
+  .our-best-sellers-list {
+   width:100%;
+  }
+  .our-best-sellers-section {
+    padding: 30px 20px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Our Best Sellers",
+  "tag": "section",
+  "class": "our-best-sellers",
+  "settings": [
+      {
+        "type": "text",
+        "id": "label_text",
+        "label": "Heading Text",
+        "default": "Our best sellers"
+      },
+  ],
+  "blocks": [
+    {
+      "type": "inspired_product",
+      "name": "Inspired Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (e.g. Inspired by)",
+          "default": "Inspired by"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id":"title",
+          "label": "Cutom Title",
+          "default":"Sauvage - 197"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "Our Best Sellers",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
+
