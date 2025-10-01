@@ -11,6 +11,28 @@
   "sections": {
     "main-product": {
       "type": "main-product",
+      "blocks": {
+        "title_HFpbPN": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_rnB6nR": {
+          "type": "price",
+          "settings": {}
+        },
+        "buy_buttons_j3Cqj7": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title_HFpbPN",
+        "price_rnB6nR",
+        "buy_buttons_j3Cqj7"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
